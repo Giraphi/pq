@@ -4,7 +4,7 @@ import styled, {css} from "styled-components";
 const StyledRoot = styled.div`
     display: flex;
     flex-direction: column;
-    width: 300px;
+    max-width: 300px;
 `
 const StyledText = styled.div`
     margin-bottom: 5px;
@@ -15,6 +15,7 @@ const StyledInput = styled.input`
     font-size: 25px;
     border: none;
     text-align: center;
+    width: 100%;
 
     &:focus::placeholder {
         color: transparent;

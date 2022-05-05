@@ -6,7 +6,7 @@ import dog from './assets/dog.webp';
 import "./style/font-faces.css";
 
 const StyledRoot = styled.div`
-    padding-top: 50px;
+    padding: 50px 5px;
 `
 
 const StyledContainer = styled.div`
@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
 const StyledImage = styled.img`
     margin-top: 30px;
     width: 150px;
-    margin-bottom: 200px;
+    margin-bottom: 150px;
 `
 
 function App() {
