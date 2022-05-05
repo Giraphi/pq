@@ -87,7 +87,6 @@ export default function Input(props: InputProps) {
                 Insgesamt eingesammelt:
             </StyledText>
             <StyledInput
-                placeholder={"0"}
                 value={userInput}
                 type={"number"}
                 pattern="[0-9]*"
