@@ -14,6 +14,11 @@ const StyledInput = styled.input`
     height: 50px;
     font-size: 25px;
     border: none;
+    text-align: center;
+
+    &:focus::placeholder {
+        color: transparent;
+    }
 `
 const StyledButton = styled.div<{isHighlighted: boolean}>`
     margin-top: 25px;
@@ -87,6 +92,7 @@ export default function Input(props: InputProps) {
                 Insgesamt eingesammelt:
             </StyledText>
             <StyledInput
+                placeholder={"0"}
                 value={userInput}
                 type={"number"}
                 pattern="[0-9]*"
