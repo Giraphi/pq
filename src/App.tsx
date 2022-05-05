@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
 const StyledImage = styled.img`
     margin-top: 30px;
     width: 150px;
-    margin-bottom: 150px;
+    margin-bottom: 30px;
 `
 
 function App() {
