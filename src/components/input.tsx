@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const StyledRoot = styled.div`
     display: flex;
@@ -13,8 +13,9 @@ const StyledText = styled.div`
 const StyledInput = styled.input`
     height: 50px;
     font-size: 25px;
+    border: none;
 `
-const StyledButton = styled.div`
+const StyledButton = styled.div<{isHighlighted: boolean}>`
     margin-top: 25px;
     height: 50px;
     border: 1px solid white;
@@ -23,6 +24,11 @@ const StyledButton = styled.div`
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    
+    ${props => props.isHighlighted && css`
+        background-color: white;
+        color: #282c34;
+    `}
 `
 
 const StyledResult = styled.div`
@@ -52,6 +58,7 @@ const defaultResult = {total: 0, bar: 0, first: 0, second: 0}
 export default function Input(props: InputProps) {
     const [userInput, setUserInput] = useState("");
     const [result, setResult] = useState<{ total: number, bar: number, first: number, second: number }>(defaultResult);
+    const [isHighlighted, setIsHighlighted] = useState(false);
 
     function handleUserInput(e: React.ChangeEvent<HTMLInputElement>) {
         setResult(defaultResult);
@@ -66,8 +73,12 @@ export default function Input(props: InputProps) {
 
         setResult({
             total, bar, second, first
-        })
+        });
 
+        setIsHighlighted(true);
+        setTimeout(() => {
+            setIsHighlighted(false);
+        }, 100);
     }
 
     return (
@@ -76,18 +87,23 @@ export default function Input(props: InputProps) {
                 Insgesamt eingesammelt:
             </StyledText>
             <StyledInput
+                placeholder={"0"}
                 value={userInput}
                 type={"number"}
                 pattern="[0-9]*"
                 onChange={handleUserInput}
             />
-            <StyledButton onClick={handleButtonClick}>Verteilung Berechnen</StyledButton>
+            <StyledButton
+                onClick={handleButtonClick}
+                isHighlighted={isHighlighted}
+            >Verteilung Berechnen
+            </StyledButton>
 
             <StyledResult>
                 <StyledLabel>Total:</StyledLabel>
                 <StyledNumber>{result.total}</StyledNumber>
 
-                <StyledLabel>Bar:</StyledLabel>
+                <StyledLabel>Quizmaster:</StyledLabel>
                 <StyledNumber>{result.bar}</StyledNumber>
 
                 <StyledLabel>First Place:</StyledLabel>

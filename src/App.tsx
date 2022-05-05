@@ -3,6 +3,7 @@ import GlobalStyle from "./style/global-style";
 import Input from "./components/input";
 import styled from "styled-components";
 import dog from './assets/dog.webp';
+import "./style/font-faces.css";
 
 const StyledRoot = styled.div`
     padding-top: 50px;
@@ -11,7 +12,6 @@ const StyledRoot = styled.div`
 const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
-    //justify-content: center;
     align-items: center;
 `
 
@@ -29,9 +29,6 @@ function App() {
                 <Input/>
             <StyledImage src={dog}/>
             </StyledContainer>
-
-
-
         </StyledRoot>
     );
 }
