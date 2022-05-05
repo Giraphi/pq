@@ -39,7 +39,7 @@ const StyledButton = styled.div<{isHighlighted: boolean}>`
 const StyledResult = styled.div`
     margin-top: 30px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr;
 `;
 
 const StyledLabel = styled.div`
@@ -52,7 +52,6 @@ const StyledNumber = styled.div`
     grid-column: 2;
     border-bottom: 1px solid white;
     padding: 5px;
-
 `
 
 export interface InputProps {
